@@ -1,0 +1,118 @@
+/**
+ * Styles globaux de l'application
+ * 
+ * Ce fichier définit les styles de base pour les éléments HTML et les composants globaux.
+ * 
+ * NOTE: Les tokens (theme/tokens.css) et le reset (theme/reset.css) sont importés
+ * dans main.tsx avant ce fichier pour garantir l'ordre d'importation correct.
+ */
+
+/* ============================================
+   FONDATIONS PHYSIQUES - HTML & Viewport
+   ============================================ */
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* Pas de overflow: hidden sur html pour permettre le scroll natif */
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* ✅ Hauteur fixe 100vh pour comportement overlay iOS (pas de 100dvh qui s'adapte au clavier) */
+  height: 100vh;
+}
+
+
+/* ============================================
+   STRUCTURE GLOBALE - Body avec proportions strictes
+   ============================================ */
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  /* ✅ Largeur stricte : 100vw */
+  width: 100vw;
+  /* ✅ Hauteur fixe 100vh pour comportement overlay iOS (pas de 100dvh qui s'adapte au clavier) */
+  height: 100vh;
+  /* ✅ Box-sizing pour éviter les débordements */
+  box-sizing: border-box;
+  background-color: transparent;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  /* ✅ Empêche le scroll global (scroll dans .page-content) */
+  overflow: hidden;
+  
+  /* NOTE: Les Safe Areas sont gérées dans .app-header et .bottom-nav
+     pour ne pas casser les proportions strictes 10/80/10 */
+  /* NOTE: Avec keyboardResize: 'none', le body reste en hauteur fixe 100vh
+     Le clavier iOS passe par-dessus sans redimensionner le layout */
+}
+
+
+/* ============================================
+   CONTENEUR RACINE - #root avec proportions strictes
+   ============================================ */
+#root {
+  display: flex;
+  flex-direction: column;
+  /* ✅ Largeur stricte : 100vw */
+  width: 100vw;
+  /* ✅ Hauteur fixe 100vh pour comportement overlay iOS (pas de 100dvh qui s'adapte au clavier) */
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  /* ✅ Box-sizing pour éviter les débordements */
+  box-sizing: border-box;
+  /* ✅ Empêche le scroll global (scroll dans .page-content) */
+  overflow: hidden;
+  /* NOTE: Avec keyboardResize: 'none', #root reste en hauteur fixe 100vh
+     Le clavier iOS passe par-dessus sans redimensionner le layout */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 2rem;
+  color: var(--text-color);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--bottom-nav-total-height); /* Utilise la variable CSS */
+  background-color: transparent;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+

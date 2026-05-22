@@ -1,0 +1,22 @@
+{
+  "short_name": "LINP",
+  "name": "LINP",
+  "description": "Application officielle de l'événement sportif et culturel LINP",
+  "icons": [
+    {
+      "src": "logo.jpg",
+      "sizes": "48x48 72x72 96x96 128x128 144x144 152x152 192x192 384x384 512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "gcm_sender_id": "103953800507",
+  "permissions": ["notifications"],
+  "orientation": "portrait",
+  "lang": "fr-FR",
+  "categories": ["events", "sports", "entertainment"]
+}

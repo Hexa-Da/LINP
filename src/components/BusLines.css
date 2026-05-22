@@ -1,0 +1,66 @@
+/* Styles pour les lignes de tramway */
+
+/* Icône des arrêts de tram */
+.tram-stop-icon {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+/* Styles pour les popups des arrêts - Utilisation du style venue-popup */
+.venue-popup .line-info {
+  margin: 0 0 clamp(var(--spacing-sm), 1.5vw, var(--spacing-sm)) 0;
+  padding: clamp(var(--spacing-sm), 1.5vw, var(--spacing-sm));
+  color: var(--text-color);
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+  text-align: center;
+  background: var(--bg-color);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+  border-radius: clamp(var(--radius-sm), 1.5vw, var(--radius-sm));
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.venue-popup .line-name {
+  font-weight: 700;
+  color: var(--text-color);
+  font-size: clamp(0.85rem, 3vw, 1rem);
+}
+
+/* Bouton "Horaires Direction" - Style aligné avec les boutons des venues */
+.venue-popup .schedule-button,
+.leaflet-popup-content-wrapper .schedule-button,
+.leaflet-popup-content .schedule-button {
+  width: 100% !important;
+  padding: 3px 5px !important;
+  color: white !important;
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+  cursor: pointer !important;
+  font-size: clamp(0.7rem, 2vw, 0.75rem) !important;
+  font-weight: normal !important;
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+  min-height: 32px !important;
+  gap: 0.5rem !important;
+}
+
+.direction-arrow {
+  display: inline-block;
+  transform-origin: center;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-left: 0.25rem;
+}
+
+.direction-arrow svg {
+  width: 100%;
+  height: 100%;
+  color: currentColor;
+  display: block;
+}
+

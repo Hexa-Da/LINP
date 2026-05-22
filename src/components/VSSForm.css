@@ -1,0 +1,314 @@
+.vss-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  /* ✅ z-index: content-high pour être au-dessus du contenu mais sous Header/Nav */
+  z-index: var(--z-content-high);
+  backdrop-filter: blur(5px);
+}
+
+
+
+.vss-form-container {
+  background-color: var(--bg-color);
+  border-radius: 12px;
+  /* ✅ Plein écran : largeur 100% */
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  left: 0;
+  right: 0;
+  /* ✅ Position fixe pour occuper tout l'espace entre header et nav */
+  position: fixed;
+  top: var(--header-height);
+  /* ✅ Bottom avec hauteur de la nav (utilise la variable CSS) */
+  bottom: var(--nav-height);
+  /* ✅ Hauteur calculée explicitement pour éviter les problèmes de flex */
+  height: calc(100vh - var(--header-height) - var(--nav-height));
+  height: calc(100svh - var(--header-height) - var(--nav-height));
+  /* ✅ Padding pour ne pas être caché par Header et Nav */
+  padding-top: 5px;
+  padding-bottom: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* ✅ Box-sizing pour inclure le padding */
+  box-sizing: border-box;
+}
+
+.vss-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  z-index: var(--z-content-high);
+  flex-shrink: 0;
+  height: 60px;
+}
+
+.vss-form-header h2 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.3rem;
+}
+
+.vss-form-header .close-button {
+  /* Réinitialisation complète des styles globaux de button */
+  all: unset;
+  /* Réapplication des styles nécessaires */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--text-color);
+  padding: 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  position: static;
+  margin-right: -10px;
+  z-index: auto;
+}
+
+.vss-form-header .close-button svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-color);
+  stroke: var(--text-color);
+  stroke-width: 2;
+}
+
+.vss-form-header .close-button:hover,
+.vss-form-header .close-button:active,
+.vss-form-header .close-button:focus,
+.vss-form-header .close-button:focus-visible {
+  background: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.vss-form-content {
+  /* ✅ Scroll activé sur ce conteneur précis */
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem;
+  flex: 1 1 auto;
+  min-height: 0;
+  /* ✅ Padding-bottom pour permettre le scroll jusqu'en bas sans être caché par la nav */
+  padding-bottom: 1rem;
+  /* ✅ Padding dynamique basé sur la hauteur du clavier (overlay mode) */
+  padding-bottom: calc(1rem + var(--keyboard-height, 0px));
+  /* ✅ Assurer que le scroll fonctionne même avec peu de contenu */
+  overscroll-behavior: contain;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.form-field-hint {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-color-light);
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="datetime-local"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="datetime-local"],
+.form-group textarea {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-group select {
+  min-height: 44px;
+  cursor: pointer;
+}
+
+/* Style pour l'icône de calendrier dans datetime-local */
+.form-group input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: var(--calendar-filter);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.form-group input[type="datetime-local"]::-webkit-datetime-edit {
+  color: var(--text-color);
+}
+
+.form-group input[type="datetime-local"]::-webkit-datetime-edit-fields-wrapper {
+  color: var(--text-color);
+}
+
+.form-group input[type="datetime-local"]::-webkit-datetime-edit-text {
+  color: var(--text-color);
+}
+
+.form-group input[type="datetime-local"]::-webkit-datetime-edit-month-field,
+.form-group input[type="datetime-local"]::-webkit-datetime-edit-day-field,
+.form-group input[type="datetime-local"]::-webkit-datetime-edit-year-field {
+  color: var(--text-color);
+}
+
+.form-group input[type="datetime-local"]::-webkit-datetime-edit-hour-field,
+.form-group input[type="datetime-local"]::-webkit-datetime-edit-minute-field,
+.form-group input[type="datetime-local"]::-webkit-datetime-edit-second-field {
+  color: var(--text-color);
+}
+
+.form-group textarea {
+  resize: vertical;
+  /* Changé: Hauteur adaptative */
+  min-height: clamp(80px, 15vh, 150px);
+}
+
+.anonymous-checkbox,
+.certification-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.anonymous-checkbox input[type="checkbox"],
+.certification-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.certification-checkbox label {
+  margin-bottom: 0;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.form-actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  /* Changé: Espacement de sécurité tactile (12px minimum) */
+  gap: 12px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  /* ✅ Hit Area tactile: minimum 44px (Apple HIG) */
+  min-height: 44px;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #c0392b;
+}
+
+.submit-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+
+.validation-error {
+  background-color: rgba(231, 76, 60, 0.15);
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.validation-success {
+  background-color: rgba(46, 204, 113, 0.15);
+  border: 1px solid var(--success-color);
+  color: var(--success-color);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-md);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form-note {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.8rem;
+  color: var(--text-color-light);
+  text-align: center;
+}
+
+@media (max-width: 480px) { /* BREAKPOINTS.mobile */
+  .vss-form-container {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    border: none;
+    margin: 0;
+    left: 0;
+    right: 0;
+    /* ✅ Position et hauteur conservées pour mobile */
+    top: var(--header-height);
+    bottom: var(--nav-height);
+    height: calc(100vh - var(--header-height) - var(--nav-height));
+    height: calc(100svh - var(--header-height) - var(--nav-height));
+    box-shadow: none;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+}

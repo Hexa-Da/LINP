@@ -1,0 +1,298 @@
+/* ============================================
+   LAYOUT SHELL - Architecture "Position Fixed"
+   ============================================ */
+.layout {
+  /* ✅ Structure simple : pas de flexbox, juste un conteneur */
+  position: relative;
+  width: 100vw;
+  /* ✅ Hauteur fixe 100vh pour comportement overlay iOS (pas de 100dvh qui s'adapte au clavier) */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Empêche le scroll horizontal */
+}
+
+/* ============================================
+   HEADER - Styles déplacés vers Header.css
+   ============================================ */
+
+/* ============================================
+   CONTENEUR PRINCIPAL - "Plein Écran" avec Marges de Sécurité
+   ============================================ */
+.app-main {
+  /* ✅ PLEIN ÉCRAN : Prend toute la largeur */
+  width: 100vw;
+  /* ✅ Hauteur fixe 100vh pour comportement overlay iOS */
+  height: 100vh;
+  /* ✅ Pas de padding - chaque page se positionne elle-même */
+  padding: 0;
+  /* ✅ Box-sizing */
+  box-sizing: border-box;
+  /* ✅ Pas de marge latérale */
+  margin: 0;
+  position: relative;
+  /* ✅ Fond transparent : laisse apparaître le background global */
+  background-color: transparent;
+  /* ✅ Overflow géré par les pages individuelles */
+  overflow: hidden;
+  /* NOTE: Chaque page gère son propre scroll et positionnement */
+}
+
+/* ✅ Exception pour la Page Map : Le .map-container ignore le padding du parent */
+.app-main .map-container {
+  /* ✅ La carte ne doit pas avoir de padding (sinon on voit du blanc) */
+  /* Le padding de .app-main est ignoré car .map-container est en position absolute */
+  position: absolute;
+  top: var(--header-height);
+  bottom: var(--nav-height);
+  left: 0;
+  right: 0;
+  height: auto; /* ✅ Pour qu'elle remplisse l'espace entre le top et le bottom */
+  width: 100%;
+  margin: 0;
+  padding: 0; /* ✅ Pas de padding (sinon blanc visible) */
+  /* ✅ Vérification Visuelle (Z-Index) : Contenu sous le Header et Nav */
+  z-index: var(--z-base);
+}
+
+/* ============================================
+   PAGE CONTENT - Classe standardisée pour toutes les pages
+   ============================================ */
+.page-content {
+  /* ✅ PLEIN ÉCRAN : Largeur 100%, pas de marge ni padding */
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  /* ✅ Box-sizing pour éviter les débordements */
+  box-sizing: border-box;
+  /* ✅ Background-color hérité de .app-main */
+  background-color: inherit;
+  /* ✅ Vérification Visuelle (Z-Index) : Contenu sous le Header et Nav */
+  z-index: var(--z-base);
+  /* Overflow géré par type de page (voir ci-dessous) */
+}
+
+/* ============================================
+   CAS A : Pages Scrollables (Home, Info, VSSForm)
+   ============================================ */
+.page-content.scrollable {
+  /* ✅ Positionnement automatique par rapport au header et BottomNav */
+  position: absolute;
+  top: var(--header-height);
+  bottom: var(--nav-height);
+  left: 0;
+  right: 0;
+  width: 100%;
+  /* ✅ Scroll géré directement sur la page */
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  /* ✅ Box-sizing pour éviter les débordements */
+  box-sizing: border-box;
+  /* ✅ Pas de marge sur le conteneur */
+  margin: 0;
+  /* ✅ Padding géré par chaque page individuellement */
+  padding: 0;
+  /* ✅ Background-color hérité */
+  background-color: inherit;
+  /* ✅ Z-index sous le header et nav */
+  z-index: var(--z-base);
+}
+
+/* ============================================
+   CAS B : Page Map (Spécial)
+   ============================================ */
+.page-content.no-scroll {
+  /* ✅ Positionnement automatique par rapport au header et BottomNav */
+  position: absolute;
+  top: var(--header-height);
+  bottom: var(--nav-height);
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  /* ✅ CAS B : Pas de scroll, overflow hidden */
+  overflow: hidden;
+  /* ✅ Box-sizing pour éviter les débordements */
+  box-sizing: border-box;
+  /* ✅ Pas de marge ni padding sur le conteneur */
+  margin: 0;
+  padding: 0;
+  /* ✅ Background-color hérité */
+  background-color: inherit;
+  /* ✅ Z-index sous le header et nav */
+  z-index: var(--z-base);
+}
+
+
+/* Assurer que les popups sont toujours au-dessus du contenu */
+.leaflet-popup {
+  z-index: var(--z-modal);
+}
+
+/* ============================================
+   BODY - Pas de scroll global, scroll dans .page-content
+   ============================================ */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  /* ✅ Hauteur fixe 100vh pour comportement overlay iOS (pas de 100dvh qui s'adapte au clavier) */
+  height: 100vh;
+  /* ✅ Empêche le scroll global */
+  overflow: hidden;
+  /* ✅ Box-sizing pour éviter les débordements */
+  box-sizing: border-box;
+}
+
+/* Les styles pour les boutons et SVG sont déjà définis plus haut */
+
+/* NOTE: Les styles .home-page et .info-page sont maintenant gérés
+   dans leurs fichiers CSS respectifs (Home.css, Info.css) avec
+   la classe .page-content.scrollable pour une meilleure cohérence.
+*/
+
+/* Styles pour les fenêtres modales */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-modal);
+}
+
+.modal-content {
+  border-radius: 8px;
+  width: 90%;
+  /* Changé: Largeur adaptative */
+  max-width: var(--modal-width-medium);
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 4px;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.modal-body {
+  padding: 16px;
+}
+
+/* Styles spécifiques pour la liste des contacts d'urgence */
+.emergency-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emergency-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-modal);
+}
+
+.emergency-popup-content {
+  background-color: var(--bg-color);
+  padding: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  /* Changé: Largeur adaptative */
+  width: min(400px, 90vw);
+  position: relative;
+}
+
+.emergency-popup-header {
+  position: relative;
+  margin-bottom: 1rem;
+  padding-right: 2rem;
+}
+
+.emergency-popup-header h3 {
+  margin-top: 0.5rem;
+  color: var(--text-color);
+}
+
+.emergency-popup .close-button {
+  transition: color 0.2s ease;
+}
+
+.emergency-popup .close-button:hover {
+  color: var(--accent-color);
+}
+
+.emergency-popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emergency-popup li {
+  margin: 0.75rem 0;
+  color: var(--text-color);
+}
+
+/* Forcer l'orientation portrait */
+@media screen and (orientation: landscape) {
+  .layout {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
+/* Empêcher la rotation sur les appareils mobiles */
+@media screen and (max-width: 768px) { /* BREAKPOINTS.tablet */
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    -webkit-text-size-adjust: 100%;
+    -webkit-transform: none !important;
+    transform: none !important;
+  }
+}
+
+/* NOTE: Les paddings responsive sont maintenant gérés directement par chaque page */
+

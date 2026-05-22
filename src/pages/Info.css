@@ -1,0 +1,203 @@
+/* ============================================
+   INFO PAGE - Block layout pour grille stable
+   ============================================ */
+.info-page {
+  display: block;
+  padding: var(--page-padding);
+  background-color: transparent;
+  color: var(--text-color);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ============================================
+   TITRE INFO
+   ============================================ */
+.info-title {
+  font-family: system-ui, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  text-align: center;
+  margin-top: calc(var(--page-title-margin-top) + var(--spacing-xl));
+  margin-bottom: calc(var(--page-title-margin-bottom) + var(--spacing-xl));
+  color: var(--text-color);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: var(--page-content-max-width);
+  box-sizing: border-box;
+}
+
+/* ============================================
+   GRILLE INFO - Grille stricte
+   ============================================ */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  grid-auto-flow: row;
+  gap: var(--spacing-sm);
+  padding: 0 var(--page-padding-horizontal);
+  max-width: var(--page-content-max-width);
+  width: 100%;
+  margin: 0 auto;
+  margin-top: var(--spacing-lg);
+  box-sizing: border-box;
+}
+
+.info-card-small,
+.info-card-medium,
+.info-card-wide,
+.info-card-large {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* ============================================
+   CARTES INFO - Glassmorphism Effect
+   ============================================ */
+.info-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: clamp(var(--radius-md), 2vw, var(--radius-lg));
+  padding: var(--spacing-sm);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(100px, 14vh, 130px);
+  box-shadow: 0 4px 6px var(--shadow-color);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Dark theme glassmorphism */
+[data-theme="dark"] .info-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Light theme glassmorphism */
+[data-theme="light"] .info-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.info-icon {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: clamp(4px, 1vh, 6px);
+  color: var(--text-color);
+}
+
+.info-icon-image {
+  width: clamp(22px, 7vw, 44px);
+  display: block;
+  object-fit: cover;
+}
+
+.info-card-title {
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  margin: 0;
+  color: var(--text-color);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ============================================
+   RESPONSIVE - Mobile First
+   ============================================ */
+@media (max-width: 600px) {
+  .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .info-card {
+    min-height: clamp(90px, 16vh, 115px);
+    padding: var(--spacing-sm);
+  }
+
+  .info-icon {
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
+  }
+
+  .info-title {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1025px) {
+  .info-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .info-card-small {
+    grid-column: span 1;
+  }
+
+  .info-card-medium,
+  .info-card-wide {
+    grid-column: span 2;
+  }
+
+  .info-card-large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+/* ============================================
+   SECTIONS INFO (pour InfoSection)
+   ============================================ */
+.info-section {
+  background: var(--bg-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.info-section h2 {
+  color: var(--text-color);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.5em;
+}
+
+.info-section p {
+  color: var(--text-color-light);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-sm);
+}
+
+.info-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-section li {
+  color: var(--text-color-light);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}

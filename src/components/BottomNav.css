@@ -1,0 +1,158 @@
+/* ============================================
+   BOTTOM NAV - Navigation fixe en bas de l'écran
+   ============================================ */
+.bottom-nav {
+  /* Position fixe : Cloué en bas de l'écran */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* Hauteur adaptative */
+  height: var(--nav-height);
+  min-height: 80px; /* Sécurité tactile */
+  /* Box-sizing : border-box pour que le padding soit inclus dans la hauteur */
+  box-sizing: border-box;
+  margin: 0;
+  /* Gestion Safe Area - Padding uniquement en bas */
+  padding-top: 12px; /* Petit espace au-dessus des icônes */
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  overflow: visible;
+  /* Z-Index : Nav au-dessus du contenu */
+  z-index: var(--z-header);
+  pointer-events: auto;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  /* Styles visuels */
+  background-color: var(--bg-primary);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -2px 12px var(--shadow-color);
+  /* Layout flex */
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start; 
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Bouton positionné en haut de la barre */
+  flex: 1;
+  height: auto;
+  border: none;
+  background: none;
+  cursor: pointer;
+  /* Padding réduit en haut pour rapprocher les boutons du haut de la barre nav */
+  padding: clamp(0px, 0vh, 2px) clamp(16px, 3vw, 20px);
+  color: var(--text-color);
+  border-radius: 0;
+  margin: 0;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  min-height: auto;
+  min-width: clamp(60px, 10vw, 80px);
+  z-index: var(--z-header);
+  pointer-events: auto;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.nav-button.active {
+  scale: 1.4;
+}
+
+.nav-button:focus {
+  outline: none;
+}
+
+.nav-icon {
+  /* Changé: Taille d'icône adaptative - réduite pour barre plus petite */
+  font-size: clamp(18px, 3vw, 22px);
+  margin-bottom: clamp(0px, 0.1vh, 1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icon svg {
+  /* Changé: SVG adaptatif - réduit pour barre plus petite */
+  width: clamp(18px, 3vw, 22px);
+  height: clamp(18px, 3vw, 22px);
+}
+
+.nav-label {
+  /* Changé: Taille de texte adaptative - réduite pour barre plus petite */
+  font-size: clamp(8px, 1.8vw, 10px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: inherit;
+  margin-bottom: clamp(1px, 0.2vh, 2px);
+  /* Changé: Protection contre débordement */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+/* ✅ Règles déjà définies dans .bottom-nav et .nav-button standard - pas de duplication nécessaire */
+
+
+@media (max-width: 600px) { /* BREAKPOINTS.smallTablet */
+  .nav-icon {
+    font-size: clamp(18px, 3vw, 22px);
+  }
+  .nav-icon svg {
+    width: clamp(18px, 3vw, 22px);
+    height: clamp(18px, 3vw, 22px);
+  }
+  .nav-label {
+    font-size: clamp(8px, 1.8vw, 10px);
+  }
+}
+
+/* Media query spécifique pour très petits écrans (iPhone 6, SE, etc.) */
+@media (max-width: 375px) {
+  .nav-button {
+    min-height: auto;
+    min-width: clamp(45px, 8vw, 50px);
+    padding: clamp(2px, 0.4vh, 4px) clamp(5px, 1.5vw, 6px);
+  }
+
+
+  .nav-icon {
+    font-size: clamp(16px, 2.8vw, 18px);
+  }
+  .nav-icon svg {
+    width: clamp(16px, 2.8vw, 18px);
+    height: clamp(16px, 2.8vw, 18px);
+  }
+}
+
+/* Media query spécifique pour iPhone 5 et très petits écrans (320px) */
+@media (max-width: 320px) {
+  .nav-button {
+    min-height: auto;
+    min-width: clamp(40px, 7vw, 45px);
+    padding: clamp(2px, 0.4vh, 4px) clamp(3px, 1.2vw, 4px);
+  }
+
+
+  .nav-icon {
+    font-size: clamp(14px, 2.5vw, 16px);
+  }
+  .nav-icon svg {
+    width: clamp(14px, 2.5vw, 16px);
+    height: clamp(14px, 2.5vw, 16px);
+  }
+
+  .nav-label {
+    font-size: clamp(7px, 1.5vw, 8px);
+  }
+}

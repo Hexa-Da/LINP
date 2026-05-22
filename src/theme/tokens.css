@@ -1,0 +1,280 @@
+/**
+ * Design Tokens - Variables CSS globales
+ * 
+ * Ce fichier centralise toutes les variables CSS utilisées dans l'application.
+ * Organisation : Fondations → Couleurs → Layout → Spacing → Composants → Z-Index
+ */
+
+:root {
+  /* ============================================
+     TYPOGRAPHIE & FONDATIONS
+     ============================================ */
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* ============================================
+     COULEURS DE BASE (Thème clair par défaut)
+     ============================================ */
+  /* Backgrounds */
+  --bg-color: #ffffff;
+  --bg-secondary: #f5f5f5;
+  
+  /* Text */
+  --text-color: #181818;
+  --text-color-light: #7f8c8d;
+  
+  /* Borders */
+  --border-color: #e0e0e0;
+  
+  /* Couleurs sémantiques */
+  --primary-color: #646cff;
+  --success-color: #2ecc71;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+  --accent-color: #4CAF50;
+  --party-color: #9C27B0;
+  /* Calendrier : couleurs passées (plus pâles) */
+  --match-passed-color: #A5D6A7;
+  --party-passed-color: #CE93D8;
+  
+  /* Shadows */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  
+  /* Filters */
+  --calendar-filter: none;
+  --checkbox-filter: none;
+
+  /* ============================================
+     COULEURS D'ÉTAT (Hover, Disabled)
+     ============================================ */
+  --primary-hover: #2980b9;
+  --success-hover: #27ae60;
+  --warning-hover: #d35400;
+  --danger-hover: #c0392b;
+  --bg-hover: #f0f0f0;
+  --bg-disabled: #e0e0e0;
+
+  /* ============================================
+     BREAKPOINTS (Points de rupture)
+     ============================================ */
+  --bp-mobile: 480px;
+  --bp-small-tablet: 600px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1024px;
+  --bp-large: 1200px;
+
+  /* ============================================
+     LAYOUT - HAUTEURS FIXES
+     ============================================ */
+  --header-height: 10vh;
+  --nav-height: 11vh;
+  --app-height: 100vh;
+
+  /* ============================================
+     LAYOUT - POSITIONS CALCULÉES
+     ============================================ */
+  --below-header: var(--header-height);
+  --above-bottom-nav: var(--nav-height);
+
+  /* ============================================
+     SPACING (Espacements cohérents)
+     ============================================ */
+  --spacing-xxs: 2px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 52px;
+
+  /* ============================================
+     SPACING PAGE TOP (Espacement en haut de page)
+     ============================================ */
+  /* Mobile */
+  --spacing-page-top-mobile-margin: clamp(25px, 3vh, 35px);
+  --spacing-page-top-mobile-padding: clamp(40px, 4vh, 55px);
+  
+  /* Tablet */
+  --spacing-page-top-tablet-margin: clamp(40px, 4vh, 50px);
+  --spacing-page-top-tablet-padding: clamp(75px, 5vh, 90px);
+  
+  /* Desktop */
+  --spacing-page-top-desktop-margin: clamp(45px, 5vh, 50px);
+  --spacing-page-top-desktop-padding: clamp(85px, 6vh, 110px);
+
+  /* ============================================
+     STANDARD DE PAGE (Layout unifié)
+     ============================================ */
+  /* Padding horizontal standard pour toutes les pages */
+  --page-padding-horizontal: var(--spacing-md);
+  
+  /* Padding vertical standard */
+  --page-padding-top: var(--spacing-page-top-mobile-padding);
+  --page-padding-bottom: var(--spacing-md);
+  
+  /* Padding complet standard */
+  --page-padding: var(--page-padding-top) var(--page-padding-horizontal) var(--page-padding-bottom) var(--page-padding-horizontal);
+  
+  /* Margin pour les titres de page */
+  --page-title-margin-top: var(--spacing-page-top-mobile-margin);
+  --page-title-margin-bottom: var(--spacing-lg);
+  
+  /* Max-width pour le contenu centré */
+  --page-content-max-width: min(900px, 95vw);
+  
+  /* Structure flexbox standard */
+  --page-display: flex;
+  --page-flex-direction: column;
+  --page-justify-content: flex-start;
+  --page-align-items: stretch;
+
+  /* ============================================
+     BORDER RADIUS (Harmonisation)
+     ============================================ */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* ============================================
+     COMPOSANTS - LARGEURS RESPONSIVES
+     ============================================ */
+  /* Modales */
+  --modal-width-small: min(350px, 90vw);
+  --modal-width-medium: min(500px, 90vw);
+  --modal-width-large: min(800px, 95vw);
+  
+  /* Panels */
+  --panel-width: min(400px, 95vw);
+  
+  /* Cartes d'événements */
+  --event-card-width: min(300px, 90vw);
+  
+  /* Cartes génériques */
+  --card-size-small: min(280px, 90vw);
+  --card-size-medium: min(300px, 85vw);
+  --card-size-large: min(350px, 85vw);
+
+  /* ============================================
+     COMPOSANTS - HAUTEURS RESPONSIVES
+     ============================================ */
+  --calendar-height: clamp(400px, calc(100vh - var(--header-height) - var(--nav-height)), 700px);
+
+  /* ============================================
+     Z-INDEX (Système de superposition)
+     ============================================ */
+  --z-below: -1;
+  --z-base: 1;
+  --z-content-overlay: 2;
+  --z-content: 10;
+  --z-content-high: 100;
+  --z-header: 1000;
+  --z-header-overlay: 1100;
+  --z-modal: 2000;
+  --z-modal-overlay: 2100;
+  --z-popup: 3000;
+  --z-popup-overlay: 3100;
+  --z-loader: 9999;
+  --z-max: 10000;
+}
+
+/* ============================================
+   THÈME SOMBRE
+   ============================================ */
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg-color: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  
+  /* Text */
+  --text-color: rgb(255, 255, 255);
+  --text-color-light: #b0b0b0;
+  
+  /* Borders */
+  --border-color: #404040;
+  
+  /* Couleurs sémantiques (conservées) */
+  --primary-color: #646cff;
+  --success-color: #2ecc71;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+  --accent-color: #4CAF50;
+  --party-color: #9C27B0;
+  /* Calendrier : couleurs passées (plus pâles) */
+  --match-passed-color: #A5D6A7;
+  --party-passed-color: #CE93D8;
+  
+  /* Shadows */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  
+  /* Filters */
+  --calendar-filter: invert(0);
+  --checkbox-filter: invert(0);
+  
+  /* États */
+  --bg-hover: #333333;
+  --bg-disabled: #404040;
+}
+
+/* ============================================
+   THÈME CLAIR (Explicite)
+   ============================================ */
+[data-theme="light"] {
+  /* Backgrounds – opaque pour header/nav, transparent pour le contenu via --bg-card */
+  --bg-color: #ffffff;
+  --bg-secondary: #f0f0f0;
+  --bg-card: rgba(255, 255, 255, 0.78);
+  
+  /* Text – renforcé pour lisibilité sur fond imagé */
+  --text-color: #111111;
+  --text-color-light: #555555;
+  
+  /* Borders */
+  --border-color: rgba(0, 0, 0, 0.12);
+  
+  /* Couleurs sémantiques (conservées) */
+  --primary-color: #4f52d4;
+  --success-color: #27ae60;
+  --warning-color: #e67e22;
+  --danger-color: #e74c3c;
+  --accent-color: #388E3C;
+  --party-color: #7B1FA2;
+  
+  /* Shadows – plus marquées pour contraster sur fond clair imagé */
+  --shadow-color: rgba(0, 0, 0, 0.18);
+  
+  /* Filters */
+  --calendar-filter: invert(1);
+  --checkbox-filter: invert(1);
+  
+  /* États */
+  --bg-hover: rgba(0, 0, 0, 0.06);
+  --bg-disabled: rgba(0, 0, 0, 0.10);
+}
+
+/* ============================================
+   ALIASES DE COMPATIBILITÉ (Dépréciés)
+   ============================================ */
+:root {
+  /* Layout (simplifiés) */
+  --header-total-height: var(--header-height);
+  --bottom-nav-total-height: var(--nav-height);
+  --below-header-with-margin: calc(var(--header-height) + var(--spacing-sm));
+  
+  /* Couleurs (doublons supprimés) */
+  --bg-primary: var(--bg-color);
+  --text-primary: var(--text-color);
+  --error-color: var(--danger-color);
+  
+  /* Modales */
+  --modal-width: var(--modal-width-small);
+  
+  /* Cartes (doublons supprimés) */
+  --card-size-event: var(--card-size-large);
+}

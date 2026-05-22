@@ -1,0 +1,268 @@
+.settings-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-modal);
+}
+
+.settings-menu {
+  background-color: var(--bg-color);
+  border-radius: 12px;
+  width: 90%;
+  /* Changé: Largeur adaptative */
+  max-width: var(--modal-width-small);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  z-index: var(--z-modal);
+  pointer-events: auto;
+}
+
+.settings-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  z-index: var(--z-content-high);
+  pointer-events: auto;
+}
+
+.settings-menu-header h3 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.2rem;
+}
+
+.settings-menu-header .close-button {
+  /* Réinitialisation complète des styles globaux de button */
+  all: unset;
+  /* Réapplication des styles nécessaires */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--text-color);
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  line-height: 1;
+  z-index: var(--z-modal-overlay);
+  pointer-events: auto;
+  min-width: 44px;
+  min-height: 44px;
+  transition: none;
+  /* Désactivation des effets de tap highlight et focus */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.settings-menu-header .close-button:hover,
+.settings-menu-header .close-button:active,
+.settings-menu-header .close-button:focus,
+.settings-menu-header .close-button:focus-visible {
+  background: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  transform: translateY(-50%);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.settings-menu-content {
+  padding: 1rem;
+  background-color: var(--bg-color);
+}
+
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.settings-item:last-child {
+  border-bottom: none;
+}
+
+.settings-item label {
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+/* Style pour les switches */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  background-color: transparent;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Style pour le select */
+.settings-select {
+  /* Changé: Largeur adaptative */
+  width: min(150px, 30vw);
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-color);
+  font-size: 14px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.settings-select:focus {
+  outline: none;
+  border: 1px solid var(--border-color);
+}
+
+/* Suppression des effets de focus et de sélection */
+.settings-menu * {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.settings-menu button:focus,
+.settings-menu input:focus,
+.settings-menu select:focus,
+.settings-menu .switch:focus,
+.settings-menu .slider:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Permettre la sélection de texte pour les labels */
+.settings-menu label {
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Style pour le bouton de diagnostic */
+.settings-item-button {
+  justify-content: center;
+  padding: var(--spacing-md, 1rem) 0;
+  margin-top: var(--spacing-sm, 0.5rem);
+}
+
+.diagnostic-button {
+  width: 100%;
+  padding: var(--spacing-md, 1rem);
+  background: var(--primary-color, #2196f3);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md, 8px);
+  font-size: var(--font-size-md, 1rem);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs, 0.25rem);
+}
+
+.diagnostic-button:hover {
+  background: var(--primary-color-dark, #1976d2);
+}
+
+.diagnostic-button:active {
+  transform: scale(0.98);
+}
+
+.diagnostic-button:focus {
+  outline: 2px solid var(--primary-color, #2196f3);
+  outline-offset: 2px;
+}
+
+.settings-diagnostic-button {
+  padding: var(--spacing-xs) var(--spacing-md);
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  min-height: 44px;
+  width: 100%;
+}

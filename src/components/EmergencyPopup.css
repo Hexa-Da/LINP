@@ -1,0 +1,181 @@
+.emergency-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-modal) !important;
+  backdrop-filter: blur(5px);
+}
+
+.emergency-popup-content {
+  background-color: var(--bg-color);
+  padding: 0px !important;
+  border-radius: 12px;
+  width: 90%;
+  /* Changé: Largeur adaptative */
+  max-width: var(--modal-width-small);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+  border: 1px solid var(--border-color);
+  -webkit-padding: 0px;
+}
+
+.emergency-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.emergency-popup-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.emergency-popup-header .close-button {
+  /* Réinitialisation complète des styles globaux de button */
+  all: unset;
+  /* Réapplication des styles nécessaires */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: 1.5rem;
+  font-weight: normal;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--text-color);
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  line-height: 1;
+  z-index: var(--z-modal-overlay);
+  pointer-events: auto;
+  min-width: 44px;
+  min-height: 44px;
+  transition: none;
+  /* Désactivation des effets de tap highlight et focus */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.emergency-popup-header .close-button:hover,
+.emergency-popup-header .close-button:active,
+.emergency-popup-header .close-button:focus,
+.emergency-popup-header .close-button:focus-visible {
+  background: none;
+  background-color: transparent;
+  color: var(--text-color);
+  border: none;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  transform: translateY(-50%);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.emergency-popup-content ul {
+  text-align: left;
+  margin: 1.5rem 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.emergency-popup-content ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
+  margin-left: 1rem;
+  color: var(--text-color);
+}
+
+.emergency-contact-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  flex: 1;
+  min-width: 0;
+}
+
+.emergency-contact-name {
+  color: var(--text-color);
+}
+
+.emergency-contact-number {
+  font-variant-numeric: tabular-nums;
+  word-break: break-word;
+}
+
+.emergency-popup-footer {
+  padding: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.emergency-popup-footer .vss-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  /* ✅ Hit Area tactile: minimum 44px (Apple HIG) */
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.emergency-popup-footer .vss-button:hover {
+  background-color: #c0392b;
+}
+
+.phone-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  margin-right: 1rem;
+  /* ✅ Hit Area tactile: minimum 44px (Apple HIG) */
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: none;
+}
+
+.phone-button svg {
+  width: 18px;
+  height: 18px;
+}

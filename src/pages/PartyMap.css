@@ -1,0 +1,282 @@
+/* ============================================
+   PARTY MAP - Layout Flexbox Standardisé
+   ============================================ */
+.party-map-container {
+  /* ✅ Positionnement géré par .page-content.no-scroll dans Layout.css */
+  /* ✅ Flexbox: Remplit l'espace disponible */
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  position: relative;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-map-loading,
+.plan-map-error {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  min-height: 0;
+}
+
+.plan-map-error {
+  color: var(--text-color);
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  text-align: center;
+}
+
+/* Same spinner pattern as CalendarPopup / EventsTab (scoped to this page) */
+.party-map-container .chat-loading-spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.party-map-container .chat-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--text-color-light);
+  border-radius: 50%;
+  animation: plan-map-spin 1s linear infinite;
+}
+
+.party-map-container .chat-loading-text {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+@keyframes plan-map-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.plan-map-error-message {
+  margin: 0 0 var(--spacing-md);
+}
+
+.plan-map-retry-button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background-color: var(--primary-color);
+  color: white;
+  font-size: clamp(0.85rem, 2.5vw, 0.9rem);
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+/* NOTE: Les styles iOS et media queries pour PartyMap sont maintenant
+   gérés par le layout flexbox standardisé. Plus besoin de calculs manuels.
+*/
+
+.party-map-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-header-overlay);
+  padding: 0 60px;
+}
+
+.back-button {
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.back-button:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
+   POPUPS LEAFLET - Styles extraits des inline
+   ============================================ */
+
+/* Marqueur de partie (cercle violet avec emoji) */
+.party-marker > div {
+  background-color: #9C27B0;
+  color: white;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.party-marker > div > span {
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Marqueur du plan (cercle blanc avec emoji) */
+.plan-indication-marker > div {
+  background-color: white;
+  color: #333;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.plan-indication-marker > div > span {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.plan-indication-marker > div > .plan-indication-marker__icon {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+/* Résultat de la partie dans la popup */
+.party-result h4 {
+  color: var(--success-color);
+  margin-top: 10px;
+}
+
+/* Conteneur d'édition (panneau flottant pour ajouter des marqueurs) */
+.plan-editor-container {
+  position: fixed;
+  bottom: calc(var(--above-bottom-nav) + var(--spacing-lg));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-modal);
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  flex-direction: row;
+  background-color: var(--bg-color);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  max-width: 90%;
+}
+
+/* Select pour choisir le type d'indication */
+.plan-indication-select {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: clamp(0.85rem, 2.5vw, 0.9rem);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  min-height: 44px;
+}
+
+/* Bouton d'ajout de marqueur (FAB-like) */
+.plan-add-marker-button {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 44px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.plan-add-marker-button:hover {
+  background-color: var(--primary-hover, #5a5fd6);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.plan-add-marker-button:active {
+  transform: scale(0.96);
+}
+
+.plan-add-marker-button-icon {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  display: block;
+}
+
+/* Bouton annuler */
+.plan-cancel-button {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: clamp(0.85rem, 2.5vw, 0.9rem);
+  font-weight: 500;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  min-height: 44px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.plan-cancel-button:active {
+  transform: scale(0.98);
+}
+
+/* Bouton supprimer dans la popup */
+.leaflet-popup-content-wrapper .plan-delete-button,
+.leaflet-popup-content .plan-delete-button,
+.venue-popup .plan-delete-button,
+.plan-delete-button {
+  margin-top: 8px !important;
+  padding: 4px 6px !important;
+  background-color: #e74c3c !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  font-size: clamp(0.75rem, 2.5vw, 0.85rem) !important;
+  font-weight: normal !important;
+  width: 100% !important;
+  min-height: 36px !important;
+}
+

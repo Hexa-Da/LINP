@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/jpeg" href="/logo.jpg" />
+    <link rel="apple-touch-icon" href="/logo.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=overlays-content" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#000000" />
+  <style>
+    /* Dark theme – image sur fond sombre */
+    html {
+      background-color: #1a1a1a;
+      background-image: url("/fond.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    /* Light theme – fond blanc avec l'image voilée par-dessus */
+    html[data-theme="light"] {
+      background-color: #ffffff;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.52)),
+        url("/fond.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    body, #root {
+      background: transparent !important;
+    }
+  </style>
+  <title>LINP</title>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@11.1.0/dist/umd/uuidv4.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Failsafe: force-remove the loader overlay after max time even if React crashes.
+      // Runs independently of React / Vite module graph.
+      (function(){
+        var MAX_MS=6000;
+        var tid=setTimeout(function(){
+          var el=document.querySelector('.loader');
+          if(el&&el.parentNode)el.parentNode.removeChild(el);
+        },MAX_MS);
+        window.__loaderFailsafeClear=function(){clearTimeout(tid)};
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html> 

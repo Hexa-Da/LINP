@@ -1,0 +1,357 @@
+/**
+ * @fileoverview Styles CSS pour PlanningFilesPage.tsx
+ * 
+ * Ce fichier contient :
+ * - Styles de base pour les filtres dynamiques
+ * - Responsive design pour mobile
+ * - Animations et transitions
+ * 
+ * Nécessaire car :
+ * - Séparation des styles du composant React
+ * - Meilleure maintenabilité du code
+ * - Performance optimisée
+ */
+
+/* ===== STYLES DE BASE ===== */
+
+/* Variables explicites pour les filtres */
+.planning-files-page .filter-label,
+.planning-files-page .filter-select {
+  color: var(--text-primary, #181818) !important;
+}
+
+/* Mode sombre spécifique */
+[data-theme="dark"] .planning-files-page .filter-label,
+[data-theme="dark"] .planning-files-page .filter-select {
+  color: #ffffff !important;
+}
+
+/* Mode clair spécifique */
+[data-theme="light"] .planning-files-page .filter-label,
+[data-theme="light"] .planning-files-page .filter-select {
+  color: #181818 !important;
+}
+
+/* Chevrons des filtres - Mode sombre */
+[data-theme="dark"] .planning-files-page .filter-select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+}
+
+/* Chevrons des filtres - Mode clair */
+[data-theme="light"] .planning-files-page .filter-select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23181818' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+}
+
+/* ============================================
+   PLANNING FILES PAGE - Layout Flexbox Standardisé
+   ============================================ */
+.planning-files-page {
+  /* ✅ Positionnement géré par .page-content.scrollable dans Layout.css */
+  /* ✅ Standard de page unifié avec offset pour les filtres fixes */
+  display: var(--page-display);
+  flex-direction: var(--page-flex-direction);
+  align-items: var(--page-align-items);
+  justify-content: var(--page-justify-content);
+  padding-top: calc(var(--page-padding-top) + 55px); /* Offset pour filters-container fixe */
+  padding-left: var(--page-padding-horizontal);
+  padding-right: var(--page-padding-horizontal);
+  /* ✅ Padding-bottom calculé pour garantir le scroll jusqu'à la fin */
+  /* Hauteur nav (10vh) + espace supplémentaire pour confort */
+  padding-bottom: calc(var(--nav-height) + var(--spacing-xl));
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: opacity 0.3s ease;
+  box-sizing: border-box;
+}
+
+.filters-container {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  z-index: var(--z-content-high);
+  background: transparent;
+  padding: var(--spacing-md) var(--spacing-md);
+  display: flex;
+  gap: var(--spacing-md);
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  box-shadow: none;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: 100%;
+  /* Changé: Largeur adaptative */
+  max-width: min(300px, 85vw);
+}
+
+.filter-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.filter-select {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border-color);
+  background: var(--bg-color);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  min-width: unset;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+/* Désactiver l'effet focus visible spécifique sur les filtres de cette page */
+.planning-files-page .filter-select:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--border-color);
+}
+
+.planning-container {
+  padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px var(--shadow-color);
+  width: 100%;
+  max-width: min(300px, 85vw);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ===== STYLES POUR LES BARRES DE CHARGEMENT ===== */
+
+.upload-progress-bar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-max);
+  background: rgba(20,20,20,0.95);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--accent-color);
+  /* Changé: Dimensions adaptatives */
+  min-width: min(300px, 90vw);
+  max-width: var(--modal-width-medium);
+}
+
+.page-loading-indicator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-header);
+  background: rgba(20,20,20,0.95);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: 2px solid var(--accent-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+
+/* ===== SPINNER DE CHARGEMENT (Style copié de ChatPanel) ===== */
+.planning-files-page .chat-loading-spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--spacing-lg) * 1.25) var(--spacing-md);
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.planning-files-page .chat-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--text-color-light);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.planning-files-page .chat-loading-text {
+  color: var(--text-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes spin {
+  0% { 
+    -webkit-transform: rotate(0deg); 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    -webkit-transform: rotate(360deg); 
+    transform: rotate(360deg); 
+  }
+}
+
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (min-width: 601px) and (max-width: 1024px) { /* BREAKPOINTS.tablet */
+  .planning-files-page {
+    padding-top: calc(var(--header-height) + var(--spacing-page-top-tablet-padding) + 55px);
+  }
+}
+
+@media (min-width: 1025px) { /* BREAKPOINTS.desktop */
+  .planning-files-page {
+    padding-top: calc(var(--header-height) + var(--spacing-page-top-desktop-padding) + 55px);
+  }
+}
+
+@media (max-width: 768px) { /* BREAKPOINTS.tablet */
+  .filters-container {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .filter-group {
+    max-width: 100%;
+  }
+  
+  .filter-select {
+    font-size: 16px;
+  }
+  
+  .planning-container {
+    max-width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 480px) { /* BREAKPOINTS.mobile */
+  .planning-files-page {
+    padding-top: calc(var(--header-height) + var(--spacing-page-top-mobile-padding) + 55px);
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .filters-container {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  .filter-group {
+    max-width: 100%;
+  }
+  
+  .planning-container {
+    max-width: calc(100% - 30px);
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: var(--spacing-md);
+  }
+}
+
+/* ===== ÉTATS DE CHARGEMENT ===== */
+
+.planning-files-page.loading {
+  opacity: 1;
+}
+
+.planning-files-page.loaded {
+  opacity: 1;
+}
+
+/* Upload overlay — z-index from tokens */
+.upload-progress-bar {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--z-max);
+  background: rgba(20, 20, 20, 0.95);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--accent-color);
+  min-width: min(300px, 90vw);
+  max-width: min(350px, 90vw);
+}
+
+.upload-progress-bar__title {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.upload-progress-bar__track {
+  width: 100%;
+  height: 16px;
+  background: #333;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: var(--spacing-sm);
+}
+
+.upload-progress-bar__fill {
+  width: var(--upload-progress, 0%);
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-color), #4caf50);
+  transition: width 0.3s ease;
+  border-radius: var(--radius-sm);
+}
+
+.upload-progress-bar__percent {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.upload-progress-bar__hint {
+  color: var(--text-color-light);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.planning-container.is-page-loading {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.planning-container:not(.is-page-loading) {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
+

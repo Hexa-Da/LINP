@@ -1,0 +1,198 @@
+.admin-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: var(--z-modal);
+  /* Pas de scroll sur l'overlay - seul le contenu du modal scroll */
+  overflow: hidden;
+  padding: 1rem;
+  /* Positionner un peu plus haut, pas au centre */
+  padding-top: 15vh;
+  /* Empêcher le scroll tactile sur mobile */
+  touch-action: none;
+  /* Empêcher le scroll élastique iOS */
+  overscroll-behavior: none;
+}
+
+/* Sur mobile, remonter le modal quand le clavier apparaît */
+@media (max-height: 600px), (max-width: 768px) and (max-height: 800px) { /* BREAKPOINTS.tablet */
+  .admin-modal-overlay {
+    padding-top: 10vh;
+  }
+}
+
+.admin-modal-content {
+  background-color: var(--bg-color);
+  border-radius: 12px;
+  width: 90%;
+  /* Changé: Largeur adaptative */
+  max-width: var(--modal-width-small);
+  max-height: calc(100vh - 2rem);
+  max-height: calc(100dvh - 2rem); /* Dynamic viewport height pour mobile */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border-color);
+  /* Centrage horizontal */
+  margin: 0 auto;
+  flex-shrink: 0;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Sur mobile avec clavier, ajuster la position */
+@media (max-height: 600px), (max-width: 768px) and (max-height: 800px) { /* BREAKPOINTS.tablet */
+  .admin-modal-content {
+    max-height: calc(100dvh - 2rem);
+  }
+}
+
+.admin-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.admin-modal-header h2 {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.admin-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-login-form {
+  padding: 1rem;
+  background-color: var(--bg-color);
+  /* Pas de scroll nécessaire pour ce formulaire simple */
+  overflow-y: visible;
+  max-height: none;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  padding: 12px 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.admin-login-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+  margin-top: 1rem;
+  /* ✅ Hit Area tactile: minimum 44px (Apple HIG) */
+  min-height: 44px;
+}
+
+.admin-login-button:hover {
+  background-color: #0056b3;
+}
+
+.admin-login-button:active {
+  transform: translateY(1px);
+}
+
+/* Suppression des effets de focus et de sélection */
+.admin-modal-content * {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.admin-modal-content button:focus,
+.admin-modal-content input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Permettre la sélection de texte pour les labels */
+.admin-modal-content label {
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Permettre la sélection de texte pour les inputs */
+.admin-modal-content input {
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
