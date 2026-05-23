@@ -19,11 +19,14 @@ const PrivacyPolicyPage: React.FC = () => {
           <h3>Définitions</h3>
         <ul className="legal-doc-list">
           <li>
-            <strong>Application</strong> désigne LINP, le programme logiciel fourni par la Société.
+            <strong>Application</strong> désigne l&apos;application mobile LINP, le programme logiciel fourni par la Société.
+          </li>
+          <li>
+            <strong>Événement</strong> désigne le L-INP, événement sportif et culturel organisé par le BDS des Mines de Nancy.
           </li>
           <li>
             <strong>Société</strong> (désignée par &quot;la Société&quot;, &quot;Nous&quot;, &quot;Notre&quot; dans ce document)
-            fait référence à LINP.
+            fait référence au BDS des Mines de Nancy.
           </li>
           <li>
             <strong>Pays</strong> fait référence à la France.
@@ -128,7 +131,7 @@ const PrivacyPolicyPage: React.FC = () => {
         <p>La Société peut utiliser les Données Personnelles aux fins suivantes :</p>
         <ul className="legal-doc-list">
           <li>
-            <strong>Valider votre identité</strong> en tant que participant à l&apos;événement LINP
+            <strong>Valider votre identité</strong> en tant que participant à l&apos;événement L-INP
           </li>
           <li>
             <strong>Vous contacter</strong> concernant les signalements VSS ou les fonctionnalités d&apos;administration
@@ -255,7 +258,7 @@ const PrivacyPolicyPage: React.FC = () => {
             <strong>Signalements VSS :</strong> Transmis via Telegram aux autorités compétentes
           </li>
           <li>
-            <strong>Données participant :</strong> Conservées pendant la durée de l&apos;événement LINP
+            <strong>Données participant :</strong> Conservées pendant la durée de l&apos;événement L-INP
           </li>
         </ul>
 
@@ -298,7 +301,7 @@ const PrivacyPolicyPage: React.FC = () => {
           <div className="legal-doc-highlight">
             <strong>Engagement de Confidentialité</strong>
             <br />
-            LINP s&apos;engage à protéger votre vie privée et à respecter vos droits en matière de protection
+            Le BDS des Mines de Nancy s&apos;engage à protéger votre vie privée et à respecter vos droits en matière de protection
             des données. Cette politique est transparente et vous donne un contrôle total sur vos informations
             personnelles.
           </div>

@@ -154,7 +154,7 @@ export const PRIVACY_CONFIG = {
     localData: 'Supprimée lors de la désinstallation de l\'application',
     analyticsData: 'Anonymisée et conservée selon les politiques Google Analytics',
     serverData: 'deviceId et données d\'activation conservées pendant la durée de l\'événement',
-    participantData: 'Conservées pendant la durée de l\'événement LINP',
+    participantData: 'Conservées pendant la durée de l\'événement L-INP',
     vssReports: 'Transmis via Telegram aux autorités compétentes'
   }
 };

@@ -18,7 +18,7 @@ const HSECharterPopupContent: React.FC<IHSECharterPopupContentProps> = ({
       <section className="hse-section">
         <h3>Tes engagements</h3>
         <p>
-          En t'inscrivant au LINP, tu rejoins une communauté respectueuse et tu t'engages sur les points :
+          En t'inscrivant au L-INP, tu rejoins une communauté respectueuse et tu t'engages sur les points :
         </p>
       </section>
 
@@ -89,7 +89,7 @@ const HSECharterPopupContent: React.FC<IHSECharterPopupContentProps> = ({
             </tr>
             <tr>
               <td>Harcèlement sexuel / Exhibition sexuelle / Bizutage</td>
-              <td>Exclusion définitive de LINP</td>
+              <td>Exclusion définitive du L-INP</td>
               <td>Disqualification de la délégation</td>
             </tr>
             <tr>
@@ -117,7 +117,7 @@ const HSECharterPopupContent: React.FC<IHSECharterPopupContentProps> = ({
       <section className="hse-section hse-final">
         <h3>J'AI LU ET JE M'ENGAGE</h3>
         <p>
-          Je souhaite participer au LINP et je m'engage à en respecter les principes de la charte. Je reconnais que
+          Je souhaite participer au L-INP et je m'engage à en respecter les principes de la charte. Je reconnais que
           le non-respect de ces règles peut conduire à mon exclusion et pénaliser ma délégation.
         </p>
         <div className="hse-checkbox-container acceptance-section">

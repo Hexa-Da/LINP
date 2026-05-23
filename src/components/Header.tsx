@@ -3,7 +3,7 @@
  * 
  * Ce composant gère :
  * - Affichage conditionnel du bouton retour selon la page
- * - Logo et titre "LINP" (masqués pour les admins)
+ * - Logo et titre "L-INP" (masqués pour les admins)
  * - Boutons d'action (paramètres, urgence)
  * - Modal d'authentification administrateur
  * - Gestion de l'état admin avec localStorage
@@ -108,10 +108,10 @@ const Header: React.FC<HeaderProps> = ({
           {hideBackButton && !isAdmin && !isRespoSport && (
             <div className="header-logo">
               <img 
-                src="/logo-Photoroom.png" 
-                alt="LINP Logo" 
+                src="/logo.jpg"
+                alt="Logo L-INP" 
               />
-              <span className="header-logo-text">LINP</span>
+              <span className="header-logo-text">L-INP 2026</span>
             </div>
           )}
           

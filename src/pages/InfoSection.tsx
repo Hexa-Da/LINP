@@ -135,7 +135,7 @@ const faqData: { [key: string]: { title: string; sections: SectionFAQ[] } } = {
         icon: <FaUtensils />,
         title: "Infos Dîner",
         faqs: [
-          { question: "Qui a acces au repas du soir ?", answer: "• Participants inscrits au LINP avec bracelet.\n• Inclus selon la formule (vérifie ton inscription)." },
+          { question: "Qui a acces au repas du soir ?", answer: "• Participants inscrits au L-INP avec bracelet.\n• Inclus selon la formule (vérifie ton inscription)." },
           { question: "Où se déroulent les dîners ?", answer: "• Restaurants partenaires indiqués dans le planning.\n• Lieu et adresse dans l’app la veille ou le jour J." },
           { question: "À quelle heure commence le service ?", answer: "• Horaire indiqué sur le planning dîner (ex. 19h30–20h).\n• Présente-toi dans la plage indiquée." },
           { question: "Le menu est-il fixe ou au choix ?", answer: "• Souvent menu du jour ou choix limité selon le restaurant.\n• Options végétariennes/végétaliennes sur demande en amont." },
@@ -148,7 +148,7 @@ const faqData: { [key: string]: { title: string; sections: SectionFAQ[] } } = {
         title: "Planning Dîner",
         faqs: [
           { question: "Que faire si je suis en retard au dîner ?", answer: "• Préviens l’organisation ou le responsable de table si possible.\n• Les places sont tenues jusqu’à la fin du créneau indiqué." },
-          { question: "Puis-je annuler ma participation à un dîner ?", answer: "• Oui, signale à l’avance à l’accueil LINP.\n• Annulation sans frais selon les délais indiqués." },
+          { question: "Puis-je annuler ma participation à un dîner ?", answer: "• Oui, signale à l’avance à l’accueil L-INP.\n• Annulation sans frais selon les délais indiqués." },
           { question: "Les restaurants sont-ils accessibles en fauteuil roulant ?", answer: "• Oui pour les lieux prévus au programme ; vérifie les infos dans l’app.\n• Contacte l’organisation pour un trajet adapté si besoin." },
         ]
       },
@@ -169,7 +169,7 @@ const faqData: { [key: string]: { title: string; sections: SectionFAQ[] } } = {
         title: "Cérémonie d'ouverture",
         faqs: [
           { question: "Quand a lieu la cérémonie d'ouverture ?", answer: "• Date et heure dans le planning (généralement jeudi soir).\n• Lieu indiqué dans l’app et par mail." },
-          { question: "La présence est-elle obligatoire ?", answer: "• Fortement recommandée pour l’esprit LINP.\n• Pas de sanction si absence justifiée." },
+          { question: "La présence est-elle obligatoire ?", answer: "• Fortement recommandée pour l’esprit L-INP.\n• Pas de sanction si absence justifiée." },
           { question: "Que se passe-t-il pendant la cérémonie ?", answer: "• Défilé des équipes, discours, animations.\n• Présentation du programme du week-end." },
           { question: "Combien de temps dure la cérémonie ?", answer: "• Environ 1h à 1h30.\n• Prévois d’arriver 15 min avant." },
           { question: "Comment se rendre à la cérémonie d'ouverture ?", answer: "• Navettes prévues ; horaires dans l’app.\n• Adresse et plan dans la rubrique Infos." },
@@ -196,8 +196,8 @@ const faqData: { [key: string]: { title: string; sections: SectionFAQ[] } } = {
         icon: <FaBook />,
         title: "Règles et fair-play",
         faqs: [
-          { question: "Quelles règles s'appliquent ?", answer: "• Règles officielles de chaque fédération + charte LINP.\n• Rappel au début des compétitions ; consultable dans l’app." },
-          { question: "Que faire en cas de litige ?", answer: "• S’adresser à l’arbitre ou au responsable de terrain.\n• En cas de désaccord : point accueil LINP ou responsable sport." },
+          { question: "Quelles règles s'appliquent ?", answer: "• Règles officielles de chaque fédération + charte L-INP.\n• Rappel au début des compétitions ; consultable dans l’app." },
+          { question: "Que faire en cas de litige ?", answer: "• S’adresser à l’arbitre ou au responsable de terrain.\n• En cas de désaccord : point accueil L-INP ou responsable sport." },
           { question: "Y a-t-il des sanctions ?", answer: "• Oui : avertissement, exclusion de match ou du week-end selon gravité.\n• Comportement fair-play exigé ; charte signée à l’inscription." },
           { question: "Comment signaler un comportement inapproprié ?", answer: "• Point accueil ou responsable de site.\n• Signalement anonyme possible via l’app ou mail dédié." },
         ]
@@ -225,8 +225,8 @@ const faqData: { [key: string]: { title: string; sections: SectionFAQ[] } } = {
           { question: "Que se passe-t-il jeudi soir ?", answer: "• Show Pompoms : spectacle et ambiance.\n• Lieu et horaire dans le planning soirées." },
           { question: "Où a lieu la soirée ?", answer: "• Lieu indiqué dans l’app (rubrique Soirées / planning).\n• Adresse et plan disponibles ; navettes si prévues." },
           { question: "Jusqu'à quelle heure ?", answer: "• Horaire de fin affiché dans le planning (ex. 1h–2h).\n• Navettes de retour jusqu’à l’heure indiquée." },
-          { question: "L'entrée est-elle gratuite avec le bracelet ?", answer: "• Oui, entrée incluse avec le bracelet LINP.\n• Sans bracelet : entrée payante si autorisée." },
-          { question: "Y a-t-il un âge minimum pour participer ?", answer: "• Réservé aux participants inscrits au LINP (majeurs ou selon règlement).\n• Pièce d’identité possible à l’entrée." },
+          { question: "L'entrée est-elle gratuite avec le bracelet ?", answer: "• Oui, entrée incluse avec le bracelet L-INP.\n• Sans bracelet : entrée payante si autorisée." },
+          { question: "Y a-t-il un âge minimum pour participer ?", answer: "• Réservé aux participants inscrits au L-INP (majeurs ou selon règlement).\n• Pièce d’identité possible à l’entrée." },
           { question: "Y a-t-il un vestiaire pour déposer mes affaires ?", answer: "• Vestiaire ou consigne selon le lieu ; payant ou gratuit selon l’organisateur.\n• Pas d’objets de valeur ; sous ta responsabilité." },
         ]
       },
@@ -244,7 +244,7 @@ const faqData: { [key: string]: { title: string; sections: SectionFAQ[] } } = {
         title: "Samedi soir - DJ Contest",
         faqs: [
           { question: "Jusqu'à quelle heure dure la soirée ?", answer: "• Horaire de fin dans le planning (souvent 2h–4h).\n• Navettes jusqu’à la fin ou horaire indiqué." },
-          { question: "Puis-je inviter quelqu'un qui n'est pas participant ?", answer: "• Non : soirées réservées aux participants LINP avec bracelet.\n• Exception possible selon organisation ; renseigne-toi à l’accueil." },
+          { question: "Puis-je inviter quelqu'un qui n'est pas participant ?", answer: "• Non : soirées réservées aux participants L-INP avec bracelet.\n• Exception possible selon organisation ; renseigne-toi à l’accueil." },
           { question: "Y a-t-il un photographe professionnel ?", answer: "• Oui selon les soirées ; photos publiées sur les réseaux ou l’app.\n• Tu peux prendre tes propres photos (usage perso)." },
         ]
       },
@@ -258,7 +258,7 @@ const faqData: { [key: string]: { title: string; sections: SectionFAQ[] } } = {
           { question: "Quelle est la fréquence des navettes ?", answer: "• Fréquence indiquée dans l’app (ex. toutes les 30 min).\n• Plus fréquent en soirée selon affluence." },
           { question: "Où sont les arrêts de navettes ?", answer: "• Carte et liste des arrêts dans l’app (Infos / Navettes).\n• Fléchage sur place vers les arrêts." },
           { question: "Les navettes sont-elles accessibles aux personnes à mobilité réduite ?", answer: "• Oui pour les navettes prévues ; contacte l’organisation pour les horaires adaptés.\n• Indique tes besoins à l’inscription." },
-          { question: "Que faire si une navette est en retard ?", answer: "• Attendre à l’arrêt ; prochain passage selon la fréquence.\n• En cas de gros retard : contacter l’accueil LINP (numéro dans l’app)." },
+          { question: "Que faire si une navette est en retard ?", answer: "• Attendre à l’arrêt ; prochain passage selon la fréquence.\n• En cas de gros retard : contacter l’accueil L-INP (numéro dans l’app)." },
         ]
       },
       ]
@@ -271,7 +271,7 @@ const faqData: { [key: string]: { title: string; sections: SectionFAQ[] } } = {
         title: "Localisation des hôtels",
         faqs: [
           { question: "Où sont situés les hôtels ?", answer: "• Liste et adresses dans l’app (Infos / Hôtels).\n• Carte et plan disponibles ; navettes depuis/vers les sites." },
-          { question: "Comment connaître mon hôtel ?", answer: "• Indiqué sur ta confirmation d’inscription et dans l’app.\n• Réception LINP à l’arrivée si besoin." },
+          { question: "Comment connaître mon hôtel ?", answer: "• Indiqué sur ta confirmation d’inscription et dans l’app.\n• accueil L-INP à l’arrivée si besoin." },
           { question: "Puis-je changer d'hôtel ?", answer: "• Sous réserve de disponibilité ; contacte l’organisation.\n• Changement possible avant l’événement selon conditions." },
           { question: "Y a-t-il un parking ?", answer: "• Selon l’hôtel ; infos dans la fiche de ton hôtel dans l’app.\n• Parkings payants possibles ; renseigne-toi à la réception." },
           { question: "Quelle est la distance entre l'hôtel et les sites sportifs ?", answer: "• Variable selon l’hôtel ; indiqué dans l’app.\n• Navettes prévues pour les trajets principaux." },
@@ -298,12 +298,12 @@ const faqData: { [key: string]: { title: string; sections: SectionFAQ[] } } = {
         icon: <FaWrench />,
         title: "Services disponibles",
         faqs: [
-          { question: "Le Wi-Fi est-il gratuit ?", answer: "• Oui dans les hôtels partenaires LINP.\n• Code à la réception ou dans la chambre." },
+          { question: "Le Wi-Fi est-il gratuit ?", answer: "• Oui dans les hôtels partenaires L-INP.\n• Code à la réception ou dans la chambre." },
           { question: "Y a-t-il une salle de sport ?", answer: "• Selon l’hôtel ; infos dans la fiche hôtel dans l’app.\n• Pas garanti pour tous les établissements." },
           { question: "Puis-je faire laver mon linge ?", answer: "• Service payant selon l’hôtel ; demande à la réception.\n• Laveries à proximité possibles." },
           { question: "Le petit-déjeuner est-il en chambre ?", answer: "• Non en général ; buffet en salle.\n• Room service possible contre supplément selon l’hôtel." },
           { question: "Y a-t-il la climatisation dans les chambres ?", answer: "• Selon l’hôtel ; indiqué dans la fiche.\n• Ventilation ou clim selon la saison." },
-          { question: "Puis-je amener mon animal de compagnie ?", answer: "• Non en règle générale pour les hôtels LINP.\n• Exception possible ; contacte l’organisation et l’hôtel." },
+          { question: "Puis-je amener mon animal de compagnie ?", answer: "• Non en règle générale pour les hôtels L-INP.\n• Exception possible ; contacte l’organisation et l’hôtel." },
           { question: "Y a-t-il un minibar dans la chambre ?", answer: "• Selon l’hôtel ; consulte la fiche.\n• Consommation payante." },
           { question: "Le petit-déjeuner est-il servi en buffet ou à la carte ?", answer: "• Souvent buffet ; détail dans la fiche hôtel.\n• Horaires affichés à la réception." },
         ]
@@ -312,13 +312,13 @@ const faqData: { [key: string]: { title: string; sections: SectionFAQ[] } } = {
         icon: <FaQuestionCircle />,
         title: "Contact et assistance",
         faqs: [
-          { question: "Qui contacter en cas de problème ?", answer: "• Réception de l’hôtel pour le séjour.\n• Accueil LINP pour l’événement (numéro dans l’app)." },
+          { question: "Qui contacter en cas de problème ?", answer: "• Réception de l’hôtel pour le séjour.\n• Accueil L-INP pour l’événement (numéro dans l’app LINP)." },
           { question: "J'ai oublié quelque chose, que faire ?", answer: "• Contacter l’hôtel rapidement ; objets trouvés conservés un temps.\n• Frais d’envoi possibles si envoi postal." },
           { question: "Comment signaler un problème dans ma chambre ?", answer: "• Réception ou numéro interne ; signalement immédiat.\n• Changement de chambre si nécessaire." },
           { question: "Puis-je inviter quelqu'un dans ma chambre ?", answer: "• Visiteurs autorisés selon règlement de l’hôtel.\n• Nuit supplémentaire : réservation et tarif à la réception." },
-          { question: "Y a-t-il un numéro d'urgence 24h/24 ?", answer: "• Oui : réception hôtel + numéro accueil LINP dans l’app.\n• 15 (SAMU), 17 (police), 18 (pompiers)." },
-          { question: "Comment réserver une chambre supplémentaire ?", answer: "• Via l’organisation LINP ou directement à l’hôtel.\n• Selon disponibilité ; tarif sur demande." },
-          { question: "Que faire en cas d'urgence médicale ?", answer: "• Appeler le 15 ; prévenir la réception et l’accueil LINP.\n• Poste secours sur les sites sportifs ; numéros dans l’app." },
+          { question: "Y a-t-il un numéro d'urgence 24h/24 ?", answer: "• Oui : réception hôtel + numéro accueil L-INP dans l’app.\n• 15 (SAMU), 17 (police), 18 (pompiers)." },
+          { question: "Comment réserver une chambre supplémentaire ?", answer: "• Via l’organisation L-INP ou directement à l’hôtel.\n• Selon disponibilité ; tarif sur demande." },
+          { question: "Que faire en cas d'urgence médicale ?", answer: "• Appeler le 15 ; prévenir la réception et l’accueil L-INP.\n• Poste secours sur les sites sportifs ; numéros dans l’app." },
           { question: "Puis-je payer ma chambre avec une carte bancaire ?", answer: "• Oui ; CB acceptée dans les hôtels partenaires.\n• Espèces selon l’établissement ; renseigne-toi à la réception." },
         ]
       },
@@ -718,7 +718,7 @@ const braceletFaqData: SectionFAQ[] = [
     icon: <FaQuestionCircle />,
     title: "À quoi sert le bracelet ?",
     faqs: [
-      { question: "Le bracelet est-il obligatoire ?", answer: "• Oui : accès aux sites, repas et soirées.\n• Sans bracelet tu ne peux pas participer aux activités LINP." },
+      { question: "Le bracelet est-il obligatoire ?", answer: "• Oui : accès aux sites, repas et soirées.\n• Sans bracelet tu ne peux pas participer aux activités L-INP." },
       { question: "Que permet le bracelet ?", answer: "• Accès terrains, repas, soirées, navettes.\n• Identification participant ; à porter en permanence." },
       { question: "Puis-je l'enlever ?", answer: "• Déconseillé : risque de perte et d’accès refusé.\n• Retrait possible pour douche/sport ; garde-le en sécurité." },
       { question: "Comment activer mon bracelet dans l'app ?", answer: "• Dans l’app : rubrique Bracelet / Mon bracelet ; scan ou code.\n• Suis les instructions à l’écran." },
@@ -733,7 +733,7 @@ const braceletFaqData: SectionFAQ[] = [
     title: "Règles et sécurité",
     faqs: [
       { question: "Puis-je prêter mon bracelet ?", answer: "• Non : usage strictement personnel ; interdit par le règlement.\n• En cas de prêt : risque de confiscation et sanction." },
-      { question: "Mon bracelet est abîmé, que faire ?", answer: "• Va à un point accueil LINP avec pièce d’identité.\n• Remplacement si défectueux ; abîmé par toi : conditions à l’accueil." },
+      { question: "Mon bracelet est abîmé, que faire ?", answer: "• Va à un point accueil L-INP avec pièce d’identité.\n• Remplacement si défectueux ; abîmé par toi : conditions à l’accueil." },
       { question: "Le bracelet est-il waterproof ?", answer: "• Oui pour douche et pluie ; évite piscine et immersion prolongée.\n• En cas de doute : retire-le pour la douche." },
       { question: "Que faire si mon bracelet ne fonctionne plus ?", answer: "• Point accueil avec pièce d’identité ; remplacement si défaillance.\n• Vérifie qu’il n’est pas endommagé (coup, eau)." },
       { question: "Le bracelet est-il résistant aux chocs ?", answer: "• Résistant à l’usage normal ; évite chocs violents.\n• En cas de casse : remplacement à l’accueil." },

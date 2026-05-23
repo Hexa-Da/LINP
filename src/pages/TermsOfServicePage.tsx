@@ -20,7 +20,10 @@ const TermsOfServicePage: React.FC = () => {
             <strong>Application</strong> : désigne l&apos;application mobile LINP
           </li>
           <li>
-            <strong>Éditeur</strong> : désigne LINP, responsable de l&apos;application
+            <strong>Événement</strong> : désigne le L-INP, organisé par le BDS des Mines de Nancy
+          </li>
+          <li>
+            <strong>Éditeur</strong> : désigne le BDS des Mines de Nancy, responsable de l&apos;application LINP et de l&apos;événement L-INP
           </li>
           <li>
             <strong>Utilisateur</strong> : désigne toute personne utilisant l&apos;application
@@ -172,7 +175,7 @@ const TermsOfServicePage: React.FC = () => {
         <h3>8.1 - Contenu de l&apos;Application</h3>
         <p>
           L&apos;ensemble du contenu de l&apos;application (textes, images, logos, design, structure) est protégé par
-          le droit d&apos;auteur et appartient à LINP ou à ses partenaires.
+          le droit d&apos;auteur et appartient au BDS des Mines de Nancy ou à ses partenaires.
         </p>
 
         <h3>8.2 - Utilisation Autorisée</h3>
@@ -244,7 +247,7 @@ const TermsOfServicePage: React.FC = () => {
         <h3>14.1 - Durée</h3>
         <p>
           Les présentes conditions s&apos;appliquent pendant toute la durée d&apos;utilisation de l&apos;application et
-          de l&apos;événement LINP.
+          de l&apos;événement L-INP.
         </p>
 
         <h3>14.2 - Résiliation</h3>

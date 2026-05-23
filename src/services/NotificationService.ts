@@ -475,7 +475,7 @@ class NotificationService {
         if ('Notification' in window && Notification.permission === 'granted') {
           new Notification(title, {
             body,
-            icon: '/favicon.png'
+            icon: '/logo.jpg'
           });
         }
       }

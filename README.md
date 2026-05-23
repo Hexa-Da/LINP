@@ -3,7 +3,7 @@
   <img src="/public/logo.jpg" alt="Logo de mon application" width="150" />
   <h1>LINP - Application mobile</h1>
 
-  <p>LINP est une application mobile et web pour consulter les événements, localiser les lieux importants et accéder aux informations pratiques de l&apos;organisation.</p>
+  <p>LINP est une application mobile et web pour consulter les événements, localiser les lieux importants et accéder aux informations pratiques du L-INP organisé par le BDS des Mines de Nancy.</p>
 </div> 
 
 ## Installation locale
@@ -11,11 +11,9 @@
 ```bash
 npm install
 cp .env.example .env
-# Remplir .env — voir SECURITY.md
+# Remplir .env 
 npm run dev
 ```
-
-Les clés Firebase et Google **ne doivent jamais** être commitées. Voir [SECURITY.md](SECURITY.md).
 
 ## Vue d'ensemble
 
@@ -127,7 +125,7 @@ App_LINP/
 
 ## Licence
 
-Projet developpe pour le LINP. Tous droits reserves.
+Projet developpe pour le L-INP. Tous droits reserves.
 
 ---
 
